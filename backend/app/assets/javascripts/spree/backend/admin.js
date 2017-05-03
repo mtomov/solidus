@@ -14,7 +14,7 @@ under the spree namespace that do stuff we find helpful.
 Hopefully, this will evolve into a propper class.
 **/
 
-Spree.ready(function($) {
+Spree.ready(function() {
   // Highlight hovered table column
   $('table').on("mouseenter", 'td.actions a, td.actions button', function(){
     var tr = $(this).closest('tr');
@@ -159,7 +159,6 @@ Spree.ready(function(){
       return ui;
   };
 
-  $('table.sortable').ready(function(){
     var td_count = $(this).find('tbody tr:first-child td').length
     $('table.sortable tbody').sortable(
       {
@@ -201,7 +200,6 @@ Spree.ready(function(){
         }
 
       });
-  });
 
   window.Spree.advanceOrder = function() {
     Spree.ajax({
