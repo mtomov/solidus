@@ -1,0 +1,19 @@
+Turbolinks.supported = <%= Spree::Backend::Config.use_turbolinks %>;
+
+// override jQuery.ready to support Turbolinks
+Spree.jQueryReady = $.fn.ready;
+
+$.fn.ready = function (callback) {
+  console.warn("jQuery.ready() is deprecated. Use Spree.ready() instead. Called from:", callback );
+  Spree.ready(callback);
+};
+
+Spree.ready = function(callback) {
+  if (Turbolinks.supported) {
+    jQuery(document).on('turbolinks:load', function() {
+      callback(jQuery);
+    });
+  } else {
+    Spree.jQueryReady(callback);
+  }
+};
