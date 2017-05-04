@@ -1,3 +1,4 @@
+//= require solidus_admin/turbolinks
 //= require solidus_admin/bind-polyfill
 //= require handlebars
 //= require jquery
@@ -17,6 +18,7 @@
 //= require spree/backend/namespaces
 //= require spree/backend/translation
 //= require spree/backend/backbone-overrides
+//= require spree/backend/turbolinks-configuration
 //= require spree/backend/format_money
 //
 //= require spree/backend/templates
